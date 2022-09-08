@@ -1,0 +1,164 @@
+from random import randint
+
+# Write all of your part 2A code below this comment. DO NOT CHANGE OR REMOVE THIS COMMENT.
+
+# ---------------------------parta------------------------------
+card_rank_1 = randint(1,13)
+# print(card_rank_1)-----not printing this!!!!!
+
+if card_rank_1 == 1 :
+  # A 1 stands for an ace.
+  card_name = "Ace"
+elif card_rank_1 == 11:
+  # An 11 stands for a jack.
+  card_name = "Jack"
+elif card_rank_1 == 12:
+  # A 12 stands for a queen.
+  card_name = "Queen"
+elif card_rank_1 == 13:
+  # A 13 stands for a king.
+  card_name = "King"
+else:
+  # All other cards are named by their
+  # number, or rank.
+  card_name = str(card_rank_1)
+
+if card_rank_1 == 1 or card_rank_1 == 8:
+  drew_prefix = 'Drew an '
+else:
+  drew_prefix = 'Drew a '
+
+if card_rank_1 < 1 or card_rank_1 > 13:
+  print('BAD CARD')
+else:
+  print(drew_prefix + card_name)
+
+
+
+
+if card_rank_1 == 11 or card_rank_1 == 12 or card_rank_1 == 13:
+  # Jacks, Queens, and Kings are worth 10.
+  card_value_1 = 10
+elif card_rank_1 == 1:
+  # Aces are worth 11.
+  card_value_1 = 11
+else:
+  # All other cards are worth the same as
+  # their rank.
+  card_value_1 = card_rank_1
+
+# print("Dealer has {}." .format(card_value_1))-------------not printing this
+
+
+
+# --------------------------------card_rank_2----------------------
+
+
+card_rank_2 = randint(1,13)
+# print(card_rank_2)--------------not printing this
+
+
+if card_rank_2 == 1 :
+  # A 1 stands for an ace.
+  card_name = "Ace"
+elif card_rank_2 == 11:
+  # An 11 stands for a jack.
+  card_name = "Jack"
+elif card_rank_2 == 12:
+  # A 12 stands for a queen.
+  card_name = "Queen"
+elif card_rank_2 == 13:
+  # A 13 stands for a king.
+  card_name = "King"
+else:
+  # All other cards are named by their
+  # number, or rank.
+  card_name = str(card_rank_2)
+
+if card_rank_2 == 1 or card_rank_2 == 8:
+  drew_prefix = 'Drew an '
+else:
+  drew_prefix = 'Drew a '
+
+if card_rank_2 < 1 or card_rank_2 > 13:
+  print('BAD CARD')
+else:
+  print(drew_prefix + card_name)
+
+
+
+
+if card_rank_2 == 11 or card_rank_2 == 12 or card_rank_2 == 13:
+  # Jacks, Queens, and Kings are worth 10.
+  card_value_2 = 10
+elif card_rank_2 == 1:
+  # Aces are worth 11.
+  card_value_2 = 11
+else:
+  # All other cards are worth the same as
+  # their rank.
+  card_value_2 = card_rank_2
+
+# print("Dealer has {}." .format(card_value_2)) -------------not printing this
+
+hand_value = card_value_1 + card_value_2
+
+while hand_value < 17:
+  print("Dealer has {}." .format(hand_value))
+  card_rank_3 = randint(1,13)
+  
+
+  if card_rank_3 == 1 :
+    # A 1 stands for an ace.
+    card_name = "Ace"
+  elif card_rank_3 == 11:
+    # An 11 stands for a jack.
+    card_name = "Jack"
+  elif card_rank_3 == 12:
+    # A 12 stands for a queen.
+    card_name = "Queen"
+  elif card_rank_3 == 13:
+    # A 13 stands for a king.
+    card_name = "King"
+  else:
+    # All other cards are named by their
+    # number, or rank.
+    card_name = str(card_rank_3)
+
+  if card_rank_3 == 1 or card_rank_3 == 8:
+    drew_prefix = 'Drew an '
+  else:
+    drew_prefix = 'Drew a '
+
+  if card_rank_3 < 1 or card_rank_3 > 13:
+    print('BAD CARD')
+  else:
+    print(drew_prefix + card_name)
+
+
+
+  if card_rank_3 == 11 or card_rank_3 == 12 or card_rank_3 == 13:
+    # Jacks, Queens, and Kings are worth 10.
+    card_value_3 = 10
+  elif card_rank_3 == 1:
+    # Aces are worth 11.
+    card_value_3 = 11
+  else:
+    # All other cards are worth the same as
+    # their rank.
+    card_value_3 = card_rank_3
+
+
+  hand_value = hand_value + card_value_3   #change cardvalue 3 to just card value
+print("Final hand: {}." .format(hand_value))
+
+# ---------------------end of loop-----------------------------
+
+
+
+if hand_value == 21:
+  print('BLACKJACK!')
+elif hand_value > 21 and hand_value <= 31:
+  print('BUST.')
+# elif hand_value > 31 or hand_value < 4:
+#   print('BAD HAND VALUE!')--------------do not print anything other wise
