@@ -1,164 +1,108 @@
 from random import randint
 
-# Write all of your part 2A code below this comment. DO NOT CHANGE OR REMOVE THIS COMMENT.
-
-# ---------------------------parta------------------------------
-card_rank_1 = randint(1,13)
-# print(card_rank_1)-----not printing this!!!!!
-
-if card_rank_1 == 1 :
-  # A 1 stands for an ace.
-  card_name = "Ace"
-elif card_rank_1 == 11:
-  # An 11 stands for a jack.
-  card_name = "Jack"
-elif card_rank_1 == 12:
-  # A 12 stands for a queen.
-  card_name = "Queen"
-elif card_rank_1 == 13:
-  # A 13 stands for a king.
-  card_name = "King"
-else:
-  # All other cards are named by their
-  # number, or rank.
-  card_name = str(card_rank_1)
-
-if card_rank_1 == 1 or card_rank_1 == 8:
-  drew_prefix = 'Drew an '
-else:
-  drew_prefix = 'Drew a '
-
-if card_rank_1 < 1 or card_rank_1 > 13:
-  print('BAD CARD')
-else:
-  print(drew_prefix + card_name)
-
-
-
-
-if card_rank_1 == 11 or card_rank_1 == 12 or card_rank_1 == 13:
-  # Jacks, Queens, and Kings are worth 10.
-  card_value_1 = 10
-elif card_rank_1 == 1:
-  # Aces are worth 11.
-  card_value_1 = 11
-else:
-  # All other cards are worth the same as
-  # their rank.
-  card_value_1 = card_rank_1
-
-# print("Dealer has {}." .format(card_value_1))-------------not printing this
-
-
-
-# --------------------------------card_rank_2----------------------
-
-
-card_rank_2 = randint(1,13)
-# print(card_rank_2)--------------not printing this
-
-
-if card_rank_2 == 1 :
-  # A 1 stands for an ace.
-  card_name = "Ace"
-elif card_rank_2 == 11:
-  # An 11 stands for a jack.
-  card_name = "Jack"
-elif card_rank_2 == 12:
-  # A 12 stands for a queen.
-  card_name = "Queen"
-elif card_rank_2 == 13:
-  # A 13 stands for a king.
-  card_name = "King"
-else:
-  # All other cards are named by their
-  # number, or rank.
-  card_name = str(card_rank_2)
-
-if card_rank_2 == 1 or card_rank_2 == 8:
-  drew_prefix = 'Drew an '
-else:
-  drew_prefix = 'Drew a '
-
-if card_rank_2 < 1 or card_rank_2 > 13:
-  print('BAD CARD')
-else:
-  print(drew_prefix + card_name)
-
-
-
-
-if card_rank_2 == 11 or card_rank_2 == 12 or card_rank_2 == 13:
-  # Jacks, Queens, and Kings are worth 10.
-  card_value_2 = 10
-elif card_rank_2 == 1:
-  # Aces are worth 11.
-  card_value_2 = 11
-else:
-  # All other cards are worth the same as
-  # their rank.
-  card_value_2 = card_rank_2
-
-# print("Dealer has {}." .format(card_value_2)) -------------not printing this
-
-hand_value = card_value_1 + card_value_2
-
-while hand_value < 17:
-  print("Dealer has {}." .format(hand_value))
-  card_rank_3 = randint(1,13)
-  
-
-  if card_rank_3 == 1 :
-    # A 1 stands for an ace.
-    card_name = "Ace"
-  elif card_rank_3 == 11:
-    # An 11 stands for a jack.
-    card_name = "Jack"
-  elif card_rank_3 == 12:
-    # A 12 stands for a queen.
-    card_name = "Queen"
-  elif card_rank_3 == 13:
-    # A 13 stands for a king.
-    card_name = "King"
+# Prints the given card's official name in the form "Drew a(n) ___".
+# If the input card is invalid, prints "BAD CARD"
+# 
+# Parameters:
+#   card_rank: The numeric representation of a card (1-13)
+#
+# Return:
+#   none
+def print_card_name(card_rank):
+  if card_rank == 1:
+    card_name = 'Ace'
+  elif card_rank == 11:
+    card_name = 'Jack'
+  elif card_rank == 12:
+    card_name = 'Queen'
+  elif card_rank == 13:
+    card_name = 'King'
   else:
-    # All other cards are named by their
-    # number, or rank.
-    card_name = str(card_rank_3)
+    card_name = card_rank
 
-  if card_rank_3 == 1 or card_rank_3 == 8:
-    drew_prefix = 'Drew an '
-  else:
-    drew_prefix = 'Drew a '
-
-  if card_rank_3 < 1 or card_rank_3 > 13:
+  if card_rank == 8 or card_rank == 1:
+    print('Drew an ' + str(card_name))
+  elif card_rank < 1 or card_rank > 13:
     print('BAD CARD')
   else:
-    print(drew_prefix + card_name)
+    print('Drew a ' + str(card_name))
 
+# Draws a new random card, prints its name, and returns its value.
+# 
+# Parameters:
+#   none
+#
+# Return:
+#   an int representing the value of the card. All cards are worth
+#   the same as the card_rank except Jack, Queen, King, and Ace.
+def draw_card():
+  card_rank = randint(1, 13)
+  print_card_name(card_rank)
 
-
-  if card_rank_3 == 11 or card_rank_3 == 12 or card_rank_3 == 13:
-    # Jacks, Queens, and Kings are worth 10.
-    card_value_3 = 10
-  elif card_rank_3 == 1:
-    # Aces are worth 11.
-    card_value_3 = 11
+  if card_rank == 11 or card_rank == 12 or card_rank == 13:
+    card_value = 10
+  elif card_rank == 1:
+    card_value = 11
   else:
-    # All other cards are worth the same as
-    # their rank.
-    card_value_3 = card_rank_3
+    card_value = card_rank
 
+  return card_value
 
-  hand_value = hand_value + card_value_3   #change cardvalue 3 to just card value
-print("Final hand: {}." .format(hand_value))
+# Prints the given message formatted as a header. A header looks like:
+# -----------
+# message
+# -----------
+# 
+# Parameters:
+#   message: the string to print in the header
+#
+# Return:
+#   none
+def print_header(message):
+  print('-----------')
+  print(message)
+  print('-----------')
 
-# ---------------------end of loop-----------------------------
+# Prints turn header and draws a starting hand, which is two cards.
+# 
+# Parameters:
+#   name: The name of the player whose turn it is.
+#
+# Return:
+#   The hand total, which is the sum of the two newly drawn cards.
+def draw_starting_hand(name):
+  print_header(name + ' TURN')
+  return draw_card() + draw_card()
 
+# Prints the hand total and status at the end of a player's turn.
+# 
+# Parameters:
+#   hand_value: the sum of all of a player's cards at the end of their turn.
+#
+# Return:
+#   none
+def print_end_turn_status(hand_value):
+  print('Final hand: ' + str(hand_value) + '.')
 
+  if hand_value == 21:
+    print('BLACKJACK!')
+  elif hand_value > 21:
+    print('BUST.')
 
-if hand_value == 21:
-  print('BLACKJACK!')
-elif hand_value > 21 and hand_value <= 31:
-  print('BUST.')
-# elif hand_value > 31 or hand_value < 4:
-#   print('BAD HAND VALUE!')--------------do not print anything other wise
+# Prints the end game banner and the winner based on the final hands.
+# 
+# Parameters:
+#   user_hand: the sum of all cards in the user's hand
+#   dealer_hand: the sum of all cards in the dealer's hand
+#
+# Return:
+#   none
+def print_end_game_status(user_hand, dealer_hand):
+  print_header('GAME RESULT')
+
+  if user_hand <= 21 and (user_hand > dealer_hand or dealer_hand > 21):
+    print('You win!')
+  elif user_hand > 21 or (dealer_hand <= 21 and dealer_hand > user_hand):
+    print('Dealer wins!')
+  else:
+    print('Push.')
