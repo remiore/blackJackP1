@@ -18,8 +18,7 @@ class TestBlackjackHelper(unittest.TestCase):
   def test_mock_randint_example(self):
     """
     Example of a test to compare output for a function that calls randint
-
-    This does not count as one of your tests
+    
     """
     self.assertEqual(mock_random([3], draw_card), 3)
     self.assertEqual(mock_random([3, 5], draw_starting_hand, "DEALER"), 8)
